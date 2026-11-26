@@ -1,0 +1,169 @@
+{
+  "model_version": "rf-lift-predictor-v1.0",
+  "trained_at": "2026-11-26T08:10:16+00:00",
+  "metrics": {
+    "accuracy": 0.9761,
+    "precision": 0.8861,
+    "recall": 0.8419,
+    "f1_score": 0.8634,
+    "roc_auc": 0.9582,
+    "pr_auc": 0.8999,
+    "confusion_matrix": {
+      "matrix": [
+        [
+          5835,
+          63
+        ],
+        [
+          92,
+          490
+        ]
+      ],
+      "tn": 5835,
+      "fp": 63,
+      "fn": 92,
+      "tp": 490,
+      "labels": [
+        "No Breakdown (0)",
+        "Breakdown <=24h (1)"
+      ]
+    },
+    "classification_report": {
+      "No Breakdown (0)": {
+        "precision": 0.9844778133963219,
+        "recall": 0.9893184130213631,
+        "f1-score": 0.986892177589852,
+        "support": 5898.0
+      },
+      "Breakdown <=24h (1)": {
+        "precision": 0.8860759493670886,
+        "recall": 0.8419243986254296,
+        "f1-score": 0.8634361233480177,
+        "support": 582.0
+      },
+      "accuracy": 0.9760802469135802,
+      "macro avg": {
+        "precision": 0.9352768813817052,
+        "recall": 0.9156214058233964,
+        "f1-score": 0.9251641504689349,
+        "support": 6480.0
+      },
+      "weighted avg": {
+        "precision": 0.9756398682011036,
+        "recall": 0.9760802469135802,
+        "f1-score": 0.975803994940354,
+        "support": 6480.0
+      }
+    },
+    "classification_report_text": "                     precision    recall  f1-score   support\n\n   No Breakdown (0)       0.98      0.99      0.99      5898\nBreakdown <=24h (1)       0.89      0.84      0.86       582\n\n           accuracy                           0.98      6480\n          macro avg       0.94      0.92      0.93      6480\n       weighted avg       0.98      0.98      0.98      6480\n",
+    "feature_importance": [
+      {
+        "feature": "travel_time",
+        "importance": 0.359552
+      },
+      {
+        "feature": "vibration_level",
+        "importance": 0.282633
+      },
+      {
+        "feature": "motor_temp",
+        "importance": 0.15725
+      },
+      {
+        "feature": "door_cycle_time",
+        "importance": 0.088758
+      },
+      {
+        "feature": "motor_current",
+        "importance": 0.078187
+      },
+      {
+        "feature": "cabin_load",
+        "importance": 0.03362
+      }
+    ],
+    "accuracy_limitation_explanation": "In apartment lift predictive maintenance, breakdown events within the next 24 hours are rare compared to normal trips (~8-12% positive prevalence in this synthetic dataset, and often <1-2% in real buildings). A naive baseline predicting 'No Breakdown' every time can achieve 90-99% accuracy while missing 100% of real breakdowns (0% recall), risking passenger entrapment and unexpected outages. Recall, Precision, F1-score, PR-AUC, and the Confusion Matrix are therefore critical alongside accuracy."
+  },
+  "dataset_info": {
+    "dataset_path": "B:\\Business Intelligence and Data Analytics\\ApartmentLiftPredictor\\data\\historical\\apartment_lift_historical.csv",
+    "total_rows": 25920,
+    "train_rows": 19440,
+    "test_rows": 6480,
+    "split_method": "Chronological 75/25 split (prevents temporal data leakage)",
+    "split_cutoff_timestamp": "2026-03-09T12:00:00+00:00",
+    "train_positive_rate": 0.0898,
+    "test_positive_rate": 0.0898,
+    "missing_values_total": 3923,
+    "lifts": [
+      "LIFT-01",
+      "LIFT-02",
+      "LIFT-03"
+    ],
+    "features": [
+      "motor_temp",
+      "vibration_level",
+      "door_cycle_time",
+      "motor_current",
+      "cabin_load",
+      "travel_time"
+    ],
+    "prediction_horizon_hours": 24,
+    "limitations": "Model is trained on physics-informed synthetic historical lift sensor data. Production deployment requires calibration against building maintenance logs."
+  },
+  "baseline_stats": {
+    "motor_temp": {
+      "mean": 54.966,
+      "std": 3.8487,
+      "median": 54.8,
+      "p05": 49.0745,
+      "p95": 61.15,
+      "min": 44.48,
+      "max": 71.38
+    },
+    "vibration_level": {
+      "mean": 1.431,
+      "std": 0.2763,
+      "median": 1.42,
+      "p05": 1.01,
+      "p95": 1.88,
+      "min": 0.57,
+      "max": 2.88
+    },
+    "door_cycle_time": {
+      "mean": 3.0099,
+      "std": 0.2221,
+      "median": 3.01,
+      "p05": 2.65,
+      "p95": 3.37,
+      "min": 2.18,
+      "max": 4.31
+    },
+    "motor_current": {
+      "mean": 19.9378,
+      "std": 2.2589,
+      "median": 19.82,
+      "p05": 16.49,
+      "p95": 23.57,
+      "min": 13.63,
+      "max": 30.1
+    },
+    "cabin_load": {
+      "mean": 428.9526,
+      "std": 139.8362,
+      "median": 417.0,
+      "p05": 223.3,
+      "p95": 672.915,
+      "min": 72.4,
+      "max": 974.4
+    },
+    "travel_time": {
+      "mean": 10.2616,
+      "std": 0.5978,
+      "median": 10.25,
+      "p05": 9.3,
+      "p95": 11.25,
+      "min": 8.16,
+      "max": 12.84
+    }
+  }
+}

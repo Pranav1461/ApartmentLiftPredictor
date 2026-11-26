@@ -1,0 +1,336 @@
+/* Pure Black OLED Telemetry Theme - Precision Minimal Dark Mode */
+
+:root {
+    --bg-canvas: #000000;
+    --bg-surface: #0B0E14;
+    --bg-elevated: #121722;
+    --border-line: #1C222E;
+    --border-strong: #2A3242;
+    --text-ink: #FFFFFF;
+    --text-body: #CBD5E1;
+    --text-muted: #8491A3;
+    --accent-cobalt: #2563EB;
+    --accent-teal: #14B8A6;
+    --ok-text: #4ADE80;
+    --ok-bg: rgba(34, 197, 94, 0.12);
+    --warn-text: #FBBF24;
+    --warn-bg: rgba(245, 158, 11, 0.12);
+    --crit-text: #F87171;
+    --crit-bg: rgba(239, 68, 68, 0.14);
+}
+
+#MainMenu { visibility: hidden; }
+footer { visibility: hidden; }
+header[data-testid="stHeader"] { display: none; }
+section[data-testid="stSidebar"] { display: none !important; }
+div[data-testid="collapsedControl"] { display: none !important; }
+
+.stApp {
+    background-color: var(--bg-canvas);
+    color: var(--text-ink);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.block-container {
+    padding-top: 1.15rem;
+    padding-bottom: 2.5rem;
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
+    max-width: 1540px;
+}
+
+/* Top Brand & Telemetry Bar */
+.bms-header {
+    background-color: transparent;
+    border-bottom: 1px solid var(--border-line);
+    padding: 4px 0 14px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.bms-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.bms-brand-code {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--text-muted);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.bms-brand-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-ink);
+    letter-spacing: -0.01em;
+}
+
+.bms-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* Status pills */
+.pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.70rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+}
+
+.pill-ok {
+    background-color: var(--ok-bg);
+    color: var(--ok-text);
+    border-color: rgba(74, 222, 128, 0.28);
+}
+
+.pill-warn {
+    background-color: var(--warn-bg);
+    color: var(--warn-text);
+    border-color: rgba(251, 191, 36, 0.30);
+}
+
+.pill-crit {
+    background-color: var(--crit-bg);
+    color: var(--crit-text);
+    border-color: rgba(248, 113, 113, 0.35);
+}
+
+.pill-info {
+    background-color: rgba(37, 99, 235, 0.14);
+    color: #60A5FA;
+    border-color: rgba(96, 165, 250, 0.30);
+}
+
+/* Clean Box-Free Top Navigation Bar */
+.st-key-top_nav_bar {
+    border-bottom: 1px solid var(--border-line);
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+}
+
+.st-key-top_nav_bar div[data-testid="stHorizontalBlock"] {
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.st-key-top_nav_bar button[data-testid="stBaseButton-secondary"],
+.st-key-top_nav_bar button[kind="secondary"] {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 2px solid transparent !important;
+    border-radius: 0 !important;
+    color: #7D8899 !important;
+    font-size: 0.84rem !important;
+    font-weight: 500 !important;
+    padding: 6px 4px !important;
+    min-height: 0 !important;
+    white-space: nowrap !important;
+    box-shadow: none !important;
+}
+
+.st-key-top_nav_bar button[data-testid="stBaseButton-secondary"]:hover,
+.st-key-top_nav_bar button[kind="secondary"]:hover {
+    color: #FFFFFF !important;
+    background: transparent !important;
+    border-bottom-color: #334155 !important;
+}
+
+.st-key-top_nav_bar button[data-testid="stBaseButton-primary"],
+.st-key-top_nav_bar button[kind="primary"] {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 2px solid #2563EB !important;
+    border-radius: 0 !important;
+    color: #FFFFFF !important;
+    font-size: 0.84rem !important;
+    font-weight: 600 !important;
+    padding: 6px 4px !important;
+    min-height: 0 !important;
+    white-space: nowrap !important;
+    box-shadow: none !important;
+}
+
+.st-key-top_nav_bar button[data-testid="stBaseButton-primary"]:hover,
+.st-key-top_nav_bar button[kind="primary"]:hover {
+    color: #FFFFFF !important;
+    background: transparent !important;
+    border-bottom-color: #3B82F6 !important;
+}
+
+.st-key-top_nav_bar div[data-baseweb="select"] > div {
+    background-color: #0B0E14 !important;
+    border: 1px solid #1E2532 !important;
+    border-radius: 999px !important;
+    min-height: 34px !important;
+    font-size: 0.80rem !important;
+}
+
+/* Controls & regular buttons */
+.stButton > button {
+    border-radius: 6px;
+    border: 1px solid var(--border-strong);
+    background-color: var(--bg-elevated);
+    color: var(--text-ink);
+    font-weight: 500;
+    font-size: 0.83rem;
+    box-shadow: none;
+}
+
+.stButton > button:hover {
+    border-color: #475569;
+    background-color: #1A2130;
+    color: #FFFFFF;
+}
+
+.stButton > button[kind="primary"] {
+    background-color: var(--accent-cobalt);
+    border-color: var(--accent-cobalt);
+    color: #FFFFFF;
+}
+
+.stButton > button[kind="primary"]:hover {
+    background-color: #1D4ED8;
+    border-color: #1D4ED8;
+}
+
+/* Elevated Black Surfaces */
+.surface-box {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-line);
+    border-radius: 8px;
+    padding: 15px 18px;
+    margin-bottom: 12px;
+}
+
+/* Split Metric Bar */
+.metric-bar {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-line);
+    border-radius: 8px;
+    margin-bottom: 18px;
+}
+
+.metric-slot {
+    padding: 16px 20px;
+    border-right: 1px solid var(--border-line);
+}
+
+.metric-slot:last-child {
+    border-right: none;
+}
+
+.metric-title {
+    font-size: 0.71rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+}
+
+.metric-num {
+    font-size: 1.65rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--text-ink);
+    line-height: 1.15;
+}
+
+.metric-foot {
+    font-size: 0.74rem;
+    color: var(--text-muted);
+    margin-top: 5px;
+}
+
+/* Shaft Status Progress Strip */
+.shaft-row {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-line);
+    border-radius: 8px;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+}
+
+.progress-track {
+    width: 100%;
+    height: 6px;
+    background-color: #1A202C;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 3px;
+}
+
+/* Sensor threshold meter row */
+.sensor-meter {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-line);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+}
+
+/* Section Label */
+.sec-label {
+    font-size: 0.74rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--text-muted);
+    margin: 14px 0 10px 0;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border-line);
+}
+
+/* Alert Timeline Item */
+.timeline-item {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-line);
+    border-left: 3px solid var(--warn-text);
+    border-radius: 6px;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+}
+
+.timeline-crit {
+    border-left-color: var(--crit-text);
+    background-color: rgba(239, 68, 68, 0.05);
+}
+
+@media (max-width: 980px) {
+    .metric-bar {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .metric-slot:nth-child(2) {
+        border-right: none;
+    }
+    .metric-slot:nth-child(1),
+    .metric-slot:nth-child(2) {
+        border-bottom: 1px solid var(--border-line);
+    }
+}
